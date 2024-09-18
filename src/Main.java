@@ -26,11 +26,12 @@ public class Main {
         double finalBillTotal = (finalTip + billConverted);
         double totalPaidPerPerson = (finalBillTotal / amountOfPeopleConverted);
         double tipPerPerson = (finalTip / amountOfPeopleConverted);
-        //Final output
+        //Final calculator output
         System.out.println("Your total bill is: $" + finalBillTotal);
         System.out.println("---------------------------");
         System.out.println("The tip amount is: $" + finalTip);
         System.out.println("---------------------------");
+        //This part is to add to the output when there are more than 1 person paying.
         if (amountOfPeopleConverted > 1) {
             System.out.println("Each person will pay: $" + totalPaidPerPerson);
             System.out.println("The tip per person is: $" + tipPerPerson);
