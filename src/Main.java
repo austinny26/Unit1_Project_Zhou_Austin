@@ -1,15 +1,41 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        //Scanner setup and bill information entering
+        Scanner s = new Scanner(System.in);
+        System.out.println("Tip Calculator");
+        System.out.println("----------------");
+        System.out.println("Enter the bill($): ");
+        String bill = s.nextLine();
+        double billConverted = Double.parseDouble(bill);
+        System.out.println("----------------");
+        //Tip amount entering
+        System.out.println("Enter how much tip (without percent): ");
+        String tip = s.nextLine();
+        double tipConverted = Double.parseDouble(tip);
+        System.out.println("----------------");
+        //Amount of people paying
+        System.out.println("Enter how many people are paying: ");
+        String amountOfPeople = s.nextLine();
+        int amountOfPeopleConverted = Integer.parseInt(amountOfPeople);
+        System.out.println("----------------");
+        //Computer Calculations
+        double tipInPercent = (tipConverted * 0.01);
+        double finalTip = (tipInPercent * billConverted);
+        double finalBillTotal = (finalTip + billConverted);
+        double totalPaidPerPerson = (finalBillTotal / amountOfPeopleConverted);
+        double tipPerPerson = (finalTip / amountOfPeopleConverted);
+        //Final output
+        System.out.println("Your total bill is: $" + finalBillTotal);
+        System.out.println("---------------------------");
+        System.out.println("The tip amount is: $" + finalTip);
+        System.out.println("---------------------------");
+        if (amountOfPeopleConverted > 1) {
+            System.out.println("Each person will pay: $" + totalPaidPerPerson);
+            System.out.println("The tip per person is: $" + tipPerPerson);
+            System.out.println("---------------------------");
         }
+        s.close();
     }
 }
